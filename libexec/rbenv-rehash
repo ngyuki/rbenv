@@ -102,7 +102,7 @@ registered_shims_index=""
 # name has been registered or not.
 register_shim() {
   local shim="$@"
-  registered_shims["${#registered_shims[@]}"]="$shim"
+  registered_shims[${#registered_shims[@]}]="$shim"
   registered_shims_index="$registered_shims_index/$shim/"
 }
 
@@ -112,7 +112,7 @@ register_shim() {
 install_registered_shims() {
   local shim
   for shim in "${registered_shims[@]}"; do
-    [ -e "$shim" ] || ln -f "$PROTOTYPE_SHIM_PATH" "$shim"
+    [ -e "$shim" ] || cp -f "$PROTOTYPE_SHIM_PATH" "$shim"
   done
 }
 
