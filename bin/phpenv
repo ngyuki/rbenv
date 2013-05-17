@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+export RBENV_ROOT="$HOME/.phpenv"
+exec "$RBENV_ROOT/libexec/rbenv" "$@"
